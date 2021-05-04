@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 import { Avatar, Menu, MenuItem, TablePagination } from "@material-ui/core";
-import { Search } from "@material-ui/icons";
+import { Search, Cancel } from "@material-ui/icons";
 
 // components
 import Coin from "./components/Coin/Coin";
@@ -23,6 +23,10 @@ function App() {
 
   const handleChange = (e) => {
     setSearch(e.target.value);
+  };
+
+  const cancelSearch = () => {
+    setSearch("");
   };
 
   const filteredCoins = coins.filter((coin) =>
@@ -79,15 +83,19 @@ function App() {
                   type="text"
                   placeholder="Search"
                   className="coin-input"
+                  value={search}
                 />
               </form>
+              {search && (
+                <Cancel className="cancel-search" onClick={cancelSearch} />
+              )}
             </div>
           </div>
         </div>
         {!search ? (
-          <h1 className="title">All Coins</h1>
+          <h2 className="title">All Coins</h2>
         ) : (
-          <h1 className="title">Results for: "{search}"</h1>
+          <h2 className="title">Results for: "{search}"</h2>
         )}
         {filteredCoins.map((coin) => {
           return (
