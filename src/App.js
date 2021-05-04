@@ -46,19 +46,6 @@ function App() {
           <div className="nav-left">
             <h3>CoinGem</h3>
           </div>
-          <div className="nav-middle">
-            <div className="coin-search">
-              <Search />
-              <form>
-                <input
-                  onChange={handleChange}
-                  type="text"
-                  placeholder="Search"
-                  className="coin-input"
-                />
-              </form>
-            </div>
-          </div>
           <div className="nav-right">
             <Avatar
               aria-controls="simple-menu"
@@ -81,6 +68,22 @@ function App() {
         </div>
       </nav>
       <div className="coin-container">
+        <h1 className="title">Watchlist</h1>
+        <div className="search-container">
+          <div className="search-coin-bar">
+            <div className="coin-search">
+              <Search />
+              <form>
+                <input
+                  onChange={handleChange}
+                  type="text"
+                  placeholder="Search"
+                  className="coin-input"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
         {!search ? (
           <h1 className="title">All Coins</h1>
         ) : (

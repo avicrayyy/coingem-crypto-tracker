@@ -10,6 +10,7 @@ const Coin = ({
   priceChange,
   marketCap,
 }) => {
+  const openCoin = () => {};
   return (
     <div className="cointainer">
       <div className="coin-row">

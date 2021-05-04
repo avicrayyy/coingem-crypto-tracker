@@ -22,26 +22,6 @@ nav {
   padding: 10px 20px;
 }
 
-.nav-middle {
-  background-color: whitesmoke;
-  border-radius: 5px;
-}
-
-/* Nav Middle */
-.coin-search {
-  display: flex;
-  align-items: center;
-  padding: 6px 12px;
-}
-
-.coin-search > form > input{
-  font-size: medium;
-  border: 0;
-  margin-left: 6px;
-  background-color: transparent;
-  outline: none;
-}
-
 /* Nav Right */
 .MuiAvatar-root:hover {
   cursor: pointer;
@@ -59,4 +39,31 @@ nav {
 
 .title {
   margin-left: 20px;
+}
+
+/* Search */
+.search-container {
+  margin: 20px;
+  background-color: white;
+  padding: 20px;
+  
+}
+
+.search-coin-bar {
+  background-color: whitesmoke;
+  border-radius: 5px;
+}
+
+.coin-search {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+}
+
+.coin-search > form > input{
+  font-size: medium;
+  border: 0;
+  margin-left: 6px;
+  background-color: transparent;
+  outline: none;
 }
