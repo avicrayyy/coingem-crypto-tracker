@@ -1,7 +1,7 @@
-import react, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
-import { Avatar, TablePagination } from "@material-ui/core";
+import { Avatar, Menu, MenuItem, TablePagination } from "@material-ui/core";
 import { Search } from "@material-ui/icons";
 
 // components
@@ -29,6 +29,16 @@ function App() {
     coin.name.toLowerCase().includes(search.toLowerCase())
   );
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <div className="coin-app">
       <nav>
@@ -50,7 +60,23 @@ function App() {
             </div>
           </div>
           <div className="nav-right">
-            <Avatar />
+            <Avatar
+              aria-controls="simple-menu"
+              aria-haspopup="true"
+              onClick={handleClick}
+            />
+            <Menu
+              id="simple-menu"
+              anchorEl={anchorEl}
+              keepMounted
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              <MenuItem onClick={handleClose}>Profile</MenuItem>
+              <MenuItem onClick={handleClose}>My account</MenuItem>
+              <MenuItem onClick={handleClose}>Settings</MenuItem>
+              <MenuItem onClick={handleClose}>Logout</MenuItem>
+            </Menu>
           </div>
         </div>
       </nav>

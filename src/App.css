@@ -42,6 +42,15 @@ nav {
   outline: none;
 }
 
+/* Nav Right */
+.MuiAvatar-root:hover {
+  cursor: pointer;
+}
+
+.MuiPaper-root {
+  top: 60px !important;
+}
+
 /* Content */
 .coin-container {
   margin-top: 90px;
