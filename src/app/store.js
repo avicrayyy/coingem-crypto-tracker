@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import coinReducer from "../redux/coinSlice";
-import searchReducer from "../redux/searchSlice";
+import userReducer from "../redux/userSlice";
 
 export const store = configureStore({
   reducer: {
     coin: coinReducer,
-    search: searchReducer,
+    user: userReducer,
   },
 });

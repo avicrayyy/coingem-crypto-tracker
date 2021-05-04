@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./Watchlist.css";
 
 // icons
 import { Search, Cancel } from "@material-ui/icons";
@@ -71,6 +72,11 @@ const Watchlist = () => {
             marketCap={coin.market_cap}
             priceChange={coin.price_change_percentage_24h}
             volume={coin.total_volume}
+            rank={coin.market_cap_rank}
+            totalSupply={coin.total_supply}
+            circulatingSupply={coin.circulating_supply}
+            high={coin.high_24h}
+            low={coin.low_24h}
           />
         );
       })}

@@ -1,21 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  coin: null,
+  selectedCoin: null,
 };
 
-export const searchSlice = createSlice({
+export const coinSlice = createSlice({
   name: "coin",
   initialState,
   reducers: {
-    selectedCoin: (state, action) => {
-      state.search = action.payload;
+    selectCoin: (state, action) => {
+      state.selectedCoin = action.payload;
     },
   },
 });
 
-export const { selectedCoin } = coinSlice.actions;
+export const { selectCoin } = coinSlice.actions;
 
-export const selectCoin = (state) => state.coin.coin;
+export const selectOpenCoin = (state) => state.coin.selectedCoin;
 
 export default coinSlice.reducer;
