@@ -1,8 +1,11 @@
 import react, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
+import { Avatar, TablePagination } from "@material-ui/core";
+import { Search } from "@material-ui/icons";
 
-//
+// components
+import Coin from "./components/Coin/Coin";
 
 function App() {
   const [coins, setCoins] = useState([]);
@@ -21,18 +24,56 @@ function App() {
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
+
+  const filteredCoins = coins.filter((coin) =>
+    coin.name.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div className="coin-app">
-      <div className="coin-search">
-        <h1>Search a currency</h1>
-        <form>
-          <input
-            onChange={handleChange}
-            type="text"
-            placeholder="Search"
-            className="coin-input"
-          />
-        </form>
+      <nav>
+        <div className="nav-container">
+          <div className="nav-left">
+            <h3>CoinGem</h3>
+          </div>
+          <div className="nav-middle">
+            <div className="coin-search">
+              <Search />
+              <form>
+                <input
+                  onChange={handleChange}
+                  type="text"
+                  placeholder="Search"
+                  className="coin-input"
+                />
+              </form>
+            </div>
+          </div>
+          <div className="nav-right">
+            <Avatar />
+          </div>
+        </div>
+      </nav>
+      <div className="coin-container">
+        {!search ? (
+          <h1 className="title">All Coins</h1>
+        ) : (
+          <h1 className="title">Results for: "{search}"</h1>
+        )}
+        {filteredCoins.map((coin) => {
+          return (
+            <Coin
+              key={coin.id}
+              name={coin.name}
+              image={coin.image}
+              symbol={coin.symbol}
+              price={coin.current_price}
+              marketCap={coin.market_cap}
+              priceChange={coin.price_change_percentage_24h}
+              volume={coin.total_volume}
+            />
+          );
+        })}
       </div>
     </div>
   );
